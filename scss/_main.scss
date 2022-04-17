@@ -1,0 +1,363 @@
+
+@mixin heroCard{
+    content: "";
+    display: block;
+    position: absolute;
+    width: 300px;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    top:0;
+    left: 0;
+}
+
+@mixin reviewCard{
+    content: "";
+    display: block;
+    position: absolute;
+    width: 95px;
+    height: 95px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 50px;
+    top:12px;
+    left: 12px;
+}
+
+*{
+    box-sizing: border-box;
+}
+body{
+     margin:0;
+}
+
+ul{
+    list-style-type: none;
+    padding-left: 0;
+    margin:0;
+}
+a{
+    text-decoration: none;
+}
+
+
+header {
+    position: relative;
+    nav{
+        padding-top: 20px;
+        padding-left: 40px;
+    }
+    .header__img   { 
+        height: 100vh;
+        @include headerPoster;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position-y: top;
+        border-top-right-radius: 50%;
+        border-bottom-right-radius: 50%; 
+        button{
+            display: block;
+            margin-right: auto;
+            margin-left: auto;
+            color: gray;
+            background: transparent;
+            border: 1px solid gray;
+            padding: 22px 44px;
+            font-size: 15px;
+            cursor: pointer; 
+                &:hover {
+                    color: white;
+                    background-color: map-get($colors, header-btn-hover); 
+                }
+        }
+    }
+    .headerTxt-btn{ 
+        position: absolute;
+        top:50%;
+        left:50%;
+        transform: translate(-50%, -50%);
+        font-size: 45px;
+        color: map-get($colors, header-txt);
+        text-align: center;
+        width: 54vw; 
+        font-weight: normal;
+        .header__txt{
+            font-size: 58px;
+            font-family: "Hind";
+            font-weight: normal;
+            line-height: 1.4;
+        }
+    }
+
+    ul {
+     
+        width: 40%;
+        font-size: 30px;
+        display: flex; 
+        align-items: center;
+
+        li {
+            display: inline;
+            text-align: center;
+            cursor: pointer; 
+            text-decoration: none;
+            color: map-get($colors, nav-link);
+            padding:20px;
+           
+            &:hover {
+                color: map-get($colors, nav-link-hover);
+            }
+            
+    }
+}
+
+}
+.hero{
+    margin-bottom: 40px;
+   h2{
+       text-align:center;
+       font-size: 60px;
+       font-weight: normal;
+       font-family: "Source Sans Pro";
+   }
+   h3{
+    font-family: "Source Sans Pro";
+    font-size: 50px;
+    font-weight: normal;
+    margin-top:20px;
+    margin-bottom:0;
+    color: map-get($colors,nav-link-hover);
+    }
+
+   ul{
+       display: flex;
+       align-items: center;
+       flex-direction: column;
+
+    li{
+        box-shadow: 0 0 10px gray;
+        position: relative;
+        display: flex;
+        width: 60%;
+        font-size: 24px;
+        color: map-get($colors, hero-txt);
+        &:not(:last-child){
+            margin-bottom: 55px;
+        }
+        .heroImg{
+            margin-left: 350px;
+            padding-right: 15px;
+           
+            &.first{
+              @extend .heroImg;
+                &::before{
+                    @include heroCard;
+                    background-image: map-get($heroImgs, first);
+                   }
+            }
+            &.second{
+                @extend .heroImg;
+                  &::before{
+                    @include heroCard;
+                      background-image: map-get($heroImgs, second);
+                     }
+              }
+              &.third{
+                @extend .heroImg;
+                margin-bottom: 0;
+                  &::before{
+                    @include heroCard;
+                      background-image: map-get($heroImgs, third);
+                     }
+              }
+        }
+    }
+}
+
+}
+
+/*REVIEWS SECTION!!!*/
+.reviews{
+
+        background-color: map-get($colors, review-bcg);
+        width: 82vw;
+        display: flex;
+        flex-direction: column;
+        margin-left:auto;
+        margin-right:auto;
+        margin-bottom:40px;
+        padding: 20px;
+        color: white;
+        font-size: 20px;
+        h2{
+                color: map-get($colors, review-h2);
+                font-size: 42px;
+                font-weight: normal;
+                margin-top:0;
+                margin-bottom: 0; 
+                text-align: center;
+                font-family: "Hind";
+            }
+        ul{
+        display: flex;
+        justify-content: space-between;
+        height: 160px;
+
+        li{
+            position: relative;
+            width: 32.5%;
+            background-color: map-get($colors, review-h2);
+            display: flex;
+            align-items: center;
+            .reviews-txt-block{            
+                margin-left: 150px;
+                padding-right: 15px;
+                
+                &.first{
+                       &::before{
+                        @include reviewCard;
+                        background-image: url('../img/woman.jpg');
+                       }
+                   }
+                   &.second{
+                    &::before{
+                     @include reviewCard;
+                     background-image: url('../img/man.jpg');
+                    }
+                }
+                &.third{
+                    &::before{
+                     @include reviewCard;
+                     background-image: url('../img/woman2.jpg');
+                    }
+                }
+                p{
+                    margin-bottom: 0;
+                }
+                span{
+                    font-style: italic;
+                }
+                }
+
+        }
+        }
+}
+
+//FIND TOUR SECTION
+.find-tour{
+    width: 52vw;
+    padding: 2vw;
+    padding-bottom: 1vw;
+    background-color: map-get($colors, nav-link-hover);
+    margin-left: auto;
+    margin-right: auto;
+
+    h2{
+        // color: map-get($colors, hero-txt); 
+        color: map-get($colors, tour-title) ;
+        font-size: 42px;
+        font-weight: normal;
+        margin-bottom: 0; 
+        text-align: center;
+        font-family: "Hind";
+
+        }
+
+        form{ 
+            display: flex;
+            justify-content: space-around;
+    
+    input,select{
+        font-size: 17px;
+        font-family: "Source Sans Pro";
+        padding: 0.5vh;
+        border: 0;
+        border-radius: 0;
+        background-color: map-get($colors, nav-link-hover);
+        border-bottom: 1px solid map-get($colors,  tour-form-underline) ;
+        color: map-get($colors, tour-form-underline);
+}
+        select{
+            color: map-get($colors, tour-form-underline) ;
+        }
+}
+}
+
+
+/*FOOTER*/
+footer{
+    display: flex;
+    justify-content: space-between;
+   
+    height: 100%;
+    background:   map-get($colors, footer-bcg);
+    margin-top: 8vh;
+    padding-left:10px;
+    padding-right: 10px;
+    h3,a{
+        color: map-get($colors, footer-h3);
+    }
+    .sendFeedback{
+        color: black;
+    }
+    .footer-block2{
+        display: flex;
+        justify-content: space-around;        
+    }
+
+
+    .flex{
+        padding:20px;
+        width:calc(100%/3);
+        .copyright-text,a{
+            font-size: 20px;
+        }
+        .copyright-text{
+            color:map-get($colors, footer-copyright);
+        }
+    }
+    h3{
+        margin: 0 0 15px 0; 
+        font-size: 24px;
+    }
+    .socials{
+        display: flex;
+  
+        img{
+            width: 3vw;
+            height: 2vw;
+            padding-right: 1vw; 
+        }
+    }
+
+    .payment {
+        display: flex;
+        align-items: center;
+
+        img{
+        width:4vw;
+        padding-right: 1vw;
+        }
+    }
+    .feedback{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+        padding-top: 30px;
+        input, button{
+        width: 100%;
+        font-size: 17px;
+        height: 2.5em;
+   
+        }
+        input{
+            margin-bottom:20px;
+        }
+        button{
+            background-color: map-get($colors, footer-copyright);
+            color: white;
+            border: none;
+        }
+    }
+}
+

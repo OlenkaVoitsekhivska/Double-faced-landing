@@ -1,0 +1,29 @@
+@mixin headerPoster{
+    background-image: url("../img/4.jpg");
+}
+
+$heroImgs:(
+    "first": url("../img/5.jpeg"),
+    "second":url("../img/6.jpg"),
+    "third": url("../img/7.jpg"),
+);
+
+$colors:(
+    "nav-link":  #69395e,
+    "nav-link-hover":#9f86a2,
+    "header-txt":#ddd,
+    "header-btn-hover":rgba(0,0,94,0.2),
+    "hero-txt":#69395e,
+    "review-bcg":#8a6f8d,
+    "review-h2":#caa2cb,
+    "review-li-bcg":#9d7a86,
+    "tour-form-bcg":#9f86a2,
+    "tour-form-underline":#725e68,
+    "tour-form-color":#5e6872,
+    "footer-bcg":#5d3d85,
+    "footer-h3":#8a46de,
+    "footer-copyright":#4f0a5e,
+    "footer-a":#8a46de,
+    "footer-input":#8a769f,
+    "tour-title":#55334d,
+);
